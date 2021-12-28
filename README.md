@@ -34,7 +34,7 @@ In you assignment, you have to use all the following Technologies
 
 The Technologies for the DBMS 
 
-- [ ] MongoDB + Mongoose
+- [✓] MongoDB + Mongoose
 
 
 ## Submission
