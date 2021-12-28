@@ -5,22 +5,22 @@
 Welcome to Final Projects. This repository will serve as the starter for your final full-stack project.
 Before starting, make sure:
 
-- [ ] You have chosen your teammates for the project
-- [ ] You have created an organisation and all your teammates are members
+- [✓] You have chosen your teammates for the project
+- [✓] You have created an organisation and all your teammates are members
 
 Make sure that you have already created your own **organisation** with your teammates
 
 ## Get Started
 
-- [ ] Fork the repository under your organisation
-- [ ] Each member should clone the forked repository on his local machine
-- [ ] Choose one of the projects that has not been reserved
+- [✓] Fork the repository under your organisation
+- [✓] Each member should clone the forked repository on his local machine
+- [✓] Choose one of the projects that has not been reserved
 
 ## Team composition
 
 Edit this file by filling your team composition here:
 
-- [ ] _Student full name_ | _Github username_ | **Scrum Master**
+- [✓] Mahdi Klouz |Mahdi232 | **Scrum Master**
 - [ ] _Student full name_ | _Gihub username_
 - [ ] _Student full name_ | _Gihub username_
 
@@ -32,18 +32,10 @@ In you assignment, you have to use all the following Technologies
 - NodeJS
 - Express
 
-Choose one of these Technologies for your DBMS and your ORM
+The Technologies for the DBMS 
 
 - [ ] MongoDB + Mongoose
-- [ ] MySQL + Sequelize
 
-Feel free to use any of these technologies
-
-- Redux
-- Bootstrap
-- Tailwind
-- Gatsby
-- ...
 
 ## Submission
 
