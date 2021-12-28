@@ -20,9 +20,9 @@ Make sure that you have already created your own **organisation** with your team
 
 Edit this file by filling your team composition here:
 
-- [✓] Mahdi Klouz |Mahdi232 | **Scrum Master**
-- [ ] _Student full name_ | _Gihub username_
-- [ ] _Student full name_ | _Gihub username_
+- [✓] Mahdi Klouz | Mahdi232 | **Scrum Master**
+- [✓] Med Amine Karoui | MAkaroui
+- [✓] Yosr Karoui | yass19
 
 ## Technologies
 
