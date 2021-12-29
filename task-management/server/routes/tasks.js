@@ -1,21 +1,38 @@
 const express= require('express')
 const router = express.Router()
+const Task =require('../models/Task')
+const mongoose = require('../db/index')
+const bodyParser = require('body-parser')
+
+router.use(bodyParser())
 
 
-router.get('/api/tasks',(req,res)=>{
-res.send({data:"Here is your data"})
+router.get('/',(req,res)=>{
+    
+    Task.find().where('pets').all(['dog', 'cat', 'ferret']);
 })
-router.post('/api/tasks',(req,res)=>{
-res.send({data:"Task added"})
+    
+router.post('/',(req,res)=>{
+    const newTask= new Task(req.body);
+    newTask.save()
+    .then((tasks) => {
+        res.send(tasks)
+    })
+    .catch((error)=>{
+        res.send(error);
+    })
 })
-router.delete('/api/tasks/:id',(req,res)=>{
+
+router.delete('/:id',(req,res)=>{
     res.send({data:"Task deleted"})
 })
-router.put('/api/tasks/:id/complete',(req,res)=>{
-    res.send({data:"task modified"})
-})
-router.put('/api/tasks/:id',(req,res)=>{
+
+router.put('/:id/complete',(req,res)=>{
     res.send({data:"task modified"})
 })
 
-module.export = router;
+router.put('/:id',(req,res)=>{
+    res.send({data:"task modified"})
+})
+
+module.exports = router;
