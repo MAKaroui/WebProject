@@ -1,14 +1,14 @@
 import React from "react";
 
 
-const Card = (props)=>{
+function Card(props){
 
     return(
-        <div>
-            <h1> name={props.name}</h1>
-            <h1> deadline={props.deadline}</h1>
-            <h1> Status={props.Status}</h1>
+        <div className='bg-light-green dib br3 pa3 ma'>   
+             <h3> Title= {props.info.title}</h3> 
+             <h3> Deadline= {props.info.deadline}</h3>
+             <h3> Status= {props.info.isCompleted.toString()}</h3> 
         </div>
     )
 }
-export default Card;
+export default Card

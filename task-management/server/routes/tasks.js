@@ -9,7 +9,7 @@ router.use(bodyParser())
 
 router.get('/',(req,res)=>{
     
-    Task.find().where('pets').all(['dog', 'cat', 'ferret']);
+    
 })
     
 router.post('/',(req,res)=>{

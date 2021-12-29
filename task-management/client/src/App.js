@@ -1,15 +1,26 @@
 import './App.css';
 import CardList from './Components/CardList';
-import {cards} from '/dummy_data2';
+import { BrowserRouter as Router, Route,Switch} from 'react-router-dom';
+import { Route } from '../../server/routes/tasks';
+
+
 
 
 function App() {
   return (
-    <div className="App">
-       <CardList cards={cards}
-       />
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route>
+            <CardList />
+          </Route>
+          <Route> 
+            <AddCard/>
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
-export default App;
+export default App

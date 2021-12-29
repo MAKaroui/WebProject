@@ -1,25 +1,22 @@
 import React from "react";
 import Card from'./Card';
+import AddCard from "./AddCard";
+import dummy_data from './dummy_data';
+import { useState } from "react";
+import {Link} from 'react-router-dom'
 
+function CardList (){
+    
 
+    return(
+           <div className=''>
 
-const CardList= ({cards})=>{
-return(
-    <div className="App">
-        {
-            cards.map((card,i)=>{
-                return(
-                <Card 
-                    key={i}
-                    id={cards[i].id} 
-                    title={card[i].title}
-                    deadline={cards[i].deadline}
-                    status={cards[i].isCompleted}
-                />
-                )
-            })
-        } 
-    </div>
-)
-}
-export default CardList;
+                <h1>Your Tasks     </h1>
+
+               {    
+                    dummy_data.map(info =><Card info= {info}/>)
+               }    
+                <Link to="/createTask">Add Taks</Link>
+           </div> 
+)}
+export default CardList   
