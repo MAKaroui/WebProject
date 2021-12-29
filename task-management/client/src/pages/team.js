@@ -10,7 +10,7 @@ return (
 		height: '100vh'
 	}}
 	>
-	<h1>Welcome to GeeksforGeeks Team</h1>
+	<h1>This is our team</h1>
 	</div>
 );
 };
