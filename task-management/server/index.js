@@ -1,6 +1,6 @@
 const express = require('express')
 const bodyParser = require("body-parser")
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const app= express()
 app.use(bodyParser());
@@ -28,12 +28,12 @@ const tasks = mongoose.model('Task', {
 app.post("/api/tasks", (req,res) =>{
     // Create a new task
     const newTask = new tasks(req.body)
-    newTask.status(201).save()
+    newTask.save()
     .then((tasks) =>{
-        res.send(tasks)
+        res.status(201).send(tasks)
     })
     .catch((error) =>{
-        res.send(error)
+        res.status(500).send(error)
     })
 });
 
