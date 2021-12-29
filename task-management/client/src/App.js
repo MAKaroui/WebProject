@@ -1,12 +1,12 @@
 import './App.css';
 import CardList from './Components/CardList';
-import {cards} from '/dummy_data2';
+import Card from './Components/Card';
 
 
 function App() {
   return (
     <div className="App">
-       <CardList cards={cards}
+       <CardList cards={CardList}
        />
     </div>
   );
