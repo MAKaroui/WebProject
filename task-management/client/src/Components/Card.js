@@ -5,9 +5,12 @@ const Card = (props)=>{
 
     return(
         <div>
-            <h1> name={props.name}</h1>
-            <h1> deadline={props.deadline}</h1>
-            <h1> Status={props.Status}</h1>
+            <list>
+                <h3>ID={props.ID}</h3>
+                <h3>Title={props.title}</h3>
+                <h3>DeadLine={props.deadline}</h3>
+                <h3>Status={props.Status}</h3>
+            </list>
         </div>
     )
 }

@@ -7,6 +7,7 @@ import About from './pages/about';
 import Teams from './pages/team';
 import SignIn from './pages/signin';
 import SignUp from './pages/signup';
+import Card from './Components/Card';
 
 function App() {
 return (
@@ -20,7 +21,10 @@ return (
 		<Route path='/signup' component={SignUp} />
 	</Routes>
 	</Router>
-);  
+  
+);
+const {id} = Card;
+return(id);
 }
 
 export default App;
