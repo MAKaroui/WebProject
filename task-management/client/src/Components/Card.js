@@ -8,6 +8,9 @@ function Card(props){
              <h3> Title= {props.info.title}</h3> 
              <h3> Deadline= {props.info.deadline}</h3>
              <h3> Status= {props.info.isCompleted.toString()}</h3> 
+             <button>Done</button>
+             <button>Edit</button>
+             <button>Delete</button>            
         </div>
     )
 }

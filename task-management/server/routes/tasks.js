@@ -2,14 +2,16 @@ const express= require('express')
 const router = express.Router()
 const Task =require('../models/Task')
 const mongoose = require('../db/index')
-const bodyParser = require('body-parser')
 
-router.use(bodyParser())
+router.use(express.json())
+
+
 
 
 router.get('/',(req,res)=>{
-    
-    
+    Task.find({}).then(data => {
+        res.send(data);
+    }) 
 })
     
 router.post('/',(req,res)=>{
@@ -24,15 +26,33 @@ router.post('/',(req,res)=>{
 })
 
 router.delete('/:id',(req,res)=>{
-    res.send({data:"Task deleted"})
+    Task.findByIdAndRemove((req.params.id) , (err, doc) => {
+        if (err) {
+            res.send("Something wrong when deleting data!");
+        } else {
+            res.send("Success");
+        }
+    })
 })
 
 router.put('/:id/complete',(req,res)=>{
-    res.send({data:"task modified"})
+    Task.findOneAndUpdate({ _id: String(req.params.id) }, [ { $set: {  title : true} }], { new: true }, (err, doc) => {
+        if (err) {
+    res.send("Something wrong when updating data!");
+        }
+    }).then(
+        res.send("success")
+    )
 })
 
 router.put('/:id',(req,res)=>{
-    res.send({data:"task modified"})
+    Task.findOneAndUpdate({ _id: String(req.params.id) }, [ { $set: {  title : req.body.title} }], { new: true }, (err, doc) => {
+        if (err) {
+    res.send("Something wrong when updating data!");
+        }
+    }).then(
+        res.send("success")
+    )
 })
 
 module.exports = router;

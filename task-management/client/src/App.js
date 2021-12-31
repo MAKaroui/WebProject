@@ -1,8 +1,8 @@
 import './App.css';
 import CardList from './Components/CardList';
 import { BrowserRouter as Router, Route,Switch} from 'react-router-dom';
-import { Route } from '../../server/routes/tasks';
-
+import AddCard from './Components/AddCard';
+import Navbar from './Components/Navbar';
 
 
 
@@ -10,14 +10,17 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <Navbar/>
         <Switch>
-          <Route>
+          <Route exact path="/">
             <CardList />
           </Route>
-          <Route> 
+          <Route exact path="/CreateTask"> 
+            <h1>Please fill the task Components</h1>
             <AddCard/>
           </Route>
         </Switch>
+        
       </div>
     </Router>
   );
