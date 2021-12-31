@@ -1,13 +1,28 @@
-import React from "react";
-import {Link} from "react-router-dom";
+import React from 'react';
+import * as ReactBootStrap from "react-bootstrap";
+import {
+    BrowserRouter as Router,
+    Link
+  } from "react-router-dom";
 
-function Navbar(){
+const NavBar = () => {
     return(
-        <div className="dt dt--fixed w-100 border-box pa3 ph5-ns bb b--black-10">
-            <Link to="/">Home</Link>
-            <Link to="/CreateTask">Add Task</Link>
+        <div className="App">
+    <ReactBootStrap.Navbar collapseOnSelect expand="xl" bg="danger" variant="dark">
+  <ReactBootStrap.Navbar.Brand href="#home">Home</ReactBootStrap.Navbar.Brand>
+  <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
+  <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
+    <ReactBootStrap.Nav className="mr-auto"> 
+    <Link to="/CreateTask">
+    <ReactBootStrap.Nav.Link eventKey={2} href="AddCard">
+        AddCard
+      </ReactBootStrap.Nav.Link>
+    </Link>
+    </ReactBootStrap.Nav>
+  </ReactBootStrap.Navbar.Collapse>
+</ReactBootStrap.Navbar>
         </div>
     )
 }
 
-export default Navbar
+export default NavBar;

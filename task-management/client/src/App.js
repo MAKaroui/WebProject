@@ -1,6 +1,7 @@
+import React from 'react';
 import './App.css';
 import CardList from './Components/CardList';
-import { BrowserRouter as Router, Route,Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route,Routes} from 'react-router-dom';
 import AddCard from './Components/AddCard';
 import Navbar from './Components/Navbar';
 
@@ -8,22 +9,23 @@ import Navbar from './Components/Navbar';
 
 function App() {
   return (
+    <h1>it works</h1>,
     <Router>
+      
       <div className="App">
         <Navbar/>
-        <Switch>
-          <Route exact path="/">
-            <CardList />
-          </Route>
-          <Route exact path="/CreateTask"> 
-            <h1>Please fill the task Components</h1>
+    <Routes>
+          <Route exact path="/" component={CardList} >
+          <CardList />
+            </Route>
+          <Route exact path="/CreateTask" component={AddCard} > 
+          <h1>Please fill the task Components</h1>
             <AddCard/>
           </Route>
-        </Switch>
-        
+        </Routes>
       </div>
     </Router>
   );
 }
 
-export default App
+export default App;
