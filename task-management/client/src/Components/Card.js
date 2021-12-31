@@ -1,20 +1,22 @@
 import { useEffect,useState } from "react";
 import React  from "react";
 import axios from "axios";
+import Modal from "./Modal";
 
 function Card(props){
+const [active,setActive]= useState(false);
 const [status,setStatus]= useState(props.info.isCompleted);
 const [deadline,setDeadline]=useState(props.info.deadline);
 const [title,setTitle]=useState(props.info.title);
 const [id,setId]=useState(props.info.id);
+const [openModal,setOpenModal]=useState(false);
 
 
-
-const remove=()=>{
-    axios.delete(`http://localhost:8000/api/tasks/${id}`)
+const confirm=()=>{
+    setActive(false);
+    axios.put(`http://localhost:8000/api/tasks/${id}`,{title})
     .then(res => console.log(res))
     .catch(error =>console.log(error.message))
-
 }
 
 const Done=()=>{
@@ -26,12 +28,23 @@ const Done=()=>{
     return(
         <div className='bg-light-green dib br3 pa3 ma'> 
              <h3>ID={id}</h3>  
-             <h3> Title= {title}</h3> 
+             {active===false && <h3> Title= {title}</h3> }
+             {active===true && 
+             <label>Enter the task title:
+                    <input required type="text" placeholder="Title" value={title} onChange={event1=>setTitle(event1.target.value)}/>
+                    <span class="validity"></span>
+             </label>}
              <h3> Deadline= {deadline.toString().slice(0, 10)}</h3>
              <h3> Status= {status.toString()}</h3> 
-             <button onClick={Done}>Done</button>
-             <button>Edit</button>
-             <button onClick={remove}>Delete</button>            
+             {active===true &&
+             <button onClick={confirm}>Confirm</button>}
+             {active===false &&
+             <>
+                <button onClick={Done}>Done</button>
+                <button onClick={()=>setActive(true)}>Edit</button>
+                <button onClick={()=>setOpenModal(true)}>Delete</button>
+                {openModal &&<Modal closeModal={setOpenModal} taskID={id} cards ={props.cards} setcards={props.setcards}/>}
+            </>}
         </div>
     )
 }

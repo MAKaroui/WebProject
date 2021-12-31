@@ -26,7 +26,8 @@ router.post('/',(req,res)=>{
 })
 
 router.delete('/:id',(req,res)=>{
-    Task.findByIdAndRemove((req.params.id) , (err, doc) => {
+    console.log(req.params.id);
+    Task.deleteOne({id: req.params.id} , (err, doc) => {
         if (err) {
             res.send("Something wrong when deleting data!");
         } else {

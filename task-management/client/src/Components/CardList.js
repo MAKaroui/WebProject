@@ -15,14 +15,15 @@ function CardList (){
          })
          .catch(e => console.log(e))
      }, [])
-
+    
     return(
            <div className=''>
-
-                <h1>Your Tasks</h1>
+                {data.length===0 && <h1>You have no tasks</h1>}
+                {data.length>0 && <h1>Your Tasks</h1>}
                {    
-                    data.map(info =><Card info= {info}/>)
+                    data.map(info =><Card cards={data} setcards ={setdata} info= {info}/>)
                }    
            </div> 
 )}
+
 export default CardList   
