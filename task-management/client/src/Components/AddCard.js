@@ -6,16 +6,16 @@ import axios from 'axios';
 
  function AddCard(){
 
-    const [selectedDate, setSelectedDate]=useState(null)
+    const [deadline, setDeadline]=useState(null)
     const [id,setId]=useState('')
     const [title,setTitle]=useState('')
-    const status= false;
+    const isCompleted= false;
     const submit = ()=>{
         axios.post('http://localhost:8000/api/tasks', {
           id,    
           title,
-          selectedDate,
-          status
+          deadline,
+          isCompleted
       }).then(res => console.log(res))
       .catch(error =>console.log(error.message))
      }
@@ -35,8 +35,8 @@ import axios from 'axios';
                 </label>
                 <br/>
                 <label>Enter the task deadline date:
-                    <DatePicker selected={selectedDate} placeholderText='Date' value={selectedDate}
-                onChange={date=>setSelectedDate(date)}
+                    <DatePicker selected={deadline} placeholderText='Date' value={deadline}
+                onChange={date=>setDeadline(date)}
                 dateFormat='yyyy-MM-dd'/>
                     <span class="validity"></span>
                 </label>

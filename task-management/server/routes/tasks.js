@@ -1,20 +1,20 @@
 const express= require('express')
 const router = express.Router()
-const Task =require('../models/Task')
+const Task = require('../models/Task')
 const mongoose = require('../db/index')
 
 router.use(express.json())
 
-
-
-
 router.get('/',(req,res)=>{
-    Task.find({}).then(data => {
+    Task.find().then(data => {
         res.send(data);
-    }) 
+    }).catch(err => {
+        console.log(err);
+    })
 })
     
 router.post('/',(req,res)=>{
+    console.log(req.body);
     const newTask= new Task(req.body);
     newTask.save()
     .then((tasks) => {
