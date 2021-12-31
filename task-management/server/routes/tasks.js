@@ -36,7 +36,7 @@ router.delete('/:id',(req,res)=>{
 })
 
 router.put('/:id/complete',(req,res)=>{
-    Task.findOneAndUpdate({ _id: String(req.params.id) }, [ { $set: {  title : true} }], { new: true }, (err, doc) => {
+    Task.findOneAndUpdate({ id: String(req.params.id) }, [ { $set: {  isCompleted : true} }], { new: true }, (err, doc) => {
         if (err) {
     res.send("Something wrong when updating data!");
         }
@@ -46,7 +46,7 @@ router.put('/:id/complete',(req,res)=>{
 })
 
 router.put('/:id',(req,res)=>{
-    Task.findOneAndUpdate({ _id: String(req.params.id) }, [ { $set: {  title : req.body.title} }], { new: true }, (err, doc) => {
+    Task.findOneAndUpdate({ id: String(req.params.id) }, [ { $set: {  title : req.body.title} }], { new: true }, (err, doc) => {
         if (err) {
     res.send("Something wrong when updating data!");
         }

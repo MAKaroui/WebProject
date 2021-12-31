@@ -18,6 +18,7 @@ const remove=()=>{
 }
 
 const Done=()=>{
+    setStatus(true)
     axios.put(`http://localhost:8000/api/tasks/${id}/complete`)
     .then(res => console.log(res))
     .catch(error =>console.log(error.message))
