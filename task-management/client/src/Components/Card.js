@@ -2,7 +2,7 @@ import { useEffect,useState } from "react";
 import React  from "react";
 import axios from "axios";
 import Modal from "./Modal";
-
+import moment from 'moment';
 function Card(props){
 const [active,setActive]= useState(false);
 const [status,setStatus]= useState(props.info.isCompleted);
@@ -11,6 +11,10 @@ const [title,setTitle]=useState(props.info.title);
 const [newTitle,setNewTitle]=useState(title);
 const [id,setId]=useState(props.info.id);
 const [openModal,setOpenModal]=useState(false);
+const date = new Date();
+const [overdue,setOverdue]=useState((moment(date).isAfter(deadline)) ? true : false)
+
+
 
 const cancel=()=>{
     setActive(false);
@@ -41,6 +45,7 @@ const Done=()=>{
              </label>}
              <h3> Deadline= {deadline.toString().slice(0, 10)}</h3>
              <h3> Status= {status.toString()}</h3> 
+             {overdue && <h3>The task deadline is overdue</h3>}
              {active===true &&
              <> 
                 <button onClick={cancel}>Cancel </button>
@@ -53,6 +58,7 @@ const Done=()=>{
                 <button onClick={()=>setOpenModal(true)}>Delete</button>
                 {openModal &&<Modal closeModal={setOpenModal} taskID={id} cards ={props.cards} setcards={props.setcards}/>}
             </>}
+
         </div>
     )
 }
