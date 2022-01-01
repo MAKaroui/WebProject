@@ -8,11 +8,15 @@ const [active,setActive]= useState(false);
 const [status,setStatus]= useState(props.info.isCompleted);
 const [deadline,setDeadline]=useState(props.info.deadline);
 const [title,setTitle]=useState(props.info.title);
+const [newTitle,setNewTitle]=useState(title);
 const [id,setId]=useState(props.info.id);
 const [openModal,setOpenModal]=useState(false);
 
-
+const cancel=()=>{
+    setActive(false);
+}
 const confirm=()=>{
+    setTitle(newTitle)
     setActive(false);
     axios.put(`http://localhost:8000/api/tasks/${id}`,{title})
     .then(res => console.log(res))
@@ -31,13 +35,16 @@ const Done=()=>{
              {active===false && <h3> Title= {title}</h3> }
              {active===true && 
              <label>Enter the task title:
-                    <input required type="text" placeholder="Title" value={title} onChange={event1=>setTitle(event1.target.value)}/>
+                    <input required type="text" placeholder="Title" value={newTitle} onChange={event1=>setNewTitle(event1.target.value)}/>
                     <span class="validity"></span>
              </label>}
              <h3> Deadline= {deadline.toString().slice(0, 10)}</h3>
              <h3> Status= {status.toString()}</h3> 
              {active===true &&
-             <button onClick={confirm}>Confirm</button>}
+             <> 
+                <button onClick={cancel}>Cancel </button>
+                <button onClick={confirm}>Confirm</button>
+             </>}
              {active===false &&
              <>
                 <button onClick={Done}>Done</button>
