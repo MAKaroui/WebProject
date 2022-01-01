@@ -14,6 +14,7 @@ const [openModal,setOpenModal]=useState(false);
 
 const cancel=()=>{
     setActive(false);
+    setNewTitle(title);
 }
 const confirm=()=>{
     setTitle(newTitle)
